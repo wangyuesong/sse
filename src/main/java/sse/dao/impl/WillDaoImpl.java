@@ -13,8 +13,13 @@ import sse.dao.base.GenericDao;
 import sse.entity.Teacher;
 import sse.entity.Will;
 import sse.entity.WillPK;
+import sse.enums.StatusEnum;
 import sse.pageModel.WillModel;
 
+/**
+ * @author yuesongwang
+ *
+ */
 @Repository
 public class WillDaoImpl extends GenericDao<Integer, Will> {
 
@@ -74,5 +79,30 @@ public class WillDaoImpl extends GenericDao<Integer, Will> {
             }
         commitTransaction();
 
+    }
+
+    public List<Will> findAllWillsByTeacherId(int teacherId)
+    {
+        String queryStr = "select w from Will w where w.id.teacherId= :teacherId";
+        return this.getEntityManager().createQuery(queryStr, Will.class)
+                .setParameter("teacherId", teacherId).getResultList();
+    }
+
+    /**
+     * @Method: findAllNotRejectedWillsByTeacherIdLevelAscending
+     * @Description: Get one level wills which is not rejected by this teacher in ascending order
+     * @param @param teacherId
+     * @param @return
+     * @return List<Will>
+     * @throws
+     */
+    public List<Will> findAllNotRejectedWillsByTeacherIdAndLevel(int teacherId, int level)
+    {
+        String queryStr = "select w from Will w where w.id.teacherId= :teacherId and w.status!= :status and w.level= :level order by w.updateTime asc";
+        return this.getEntityManager().createQuery(queryStr, Will.class)
+                .setParameter("teacherId", teacherId)
+                .setParameter("status", StatusEnum.REJECTED)
+                .setParameter("level", level)
+                .getResultList();
     }
 }

@@ -78,6 +78,11 @@ public abstract class GenericDao<K, E> implements Dao<K, E> {
         return this.getEntityManager().find(entityClass, id);
     }
 
+    public List<E> findAll() {
+        return this.getEntityManager().createQuery("select w from " + entityClass.getName() + " w")
+                .getResultList();
+    }
+
     public List<E> findForPaging(String jql, List<Object> params, int page, int pageSize, String sort, String order)
     {
         return findForPaging(jql, params.toArray(), page, pageSize, sort, order);

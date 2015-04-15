@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @author yuesongwang
+ *
+ */
 @Entity
 @DiscriminatorValue("Teacher")
 public class Teacher extends User {
@@ -64,6 +68,13 @@ public class Teacher extends User {
 
     }
 
+    /**
+     * @param id
+     * @param account
+     * @param name
+     * @param password
+     * @param capacity
+     */
     public Teacher(int id, String account, String name, String password, int capacity)
     {
         this.setId(id);

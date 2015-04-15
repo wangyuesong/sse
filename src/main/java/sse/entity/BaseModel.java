@@ -13,13 +13,11 @@ import javax.persistence.TemporalType;
 public abstract class BaseModel {
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATE_TIME",
-            updatable = false, insertable = false)
+    @Column(name = "CREATE_TIME")
     private Date createTime;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "UPDATE_TIME",
-            updatable = false, insertable = false)
+    @Column(name = "UPDATE_TIME")
     private Date updateTime;
 
     public Date getCreateTime() {
@@ -51,7 +49,9 @@ public abstract class BaseModel {
 
     @PrePersist
     void onCreate() {
-        this.setCreateTime(new Date());
+        Date d = new Date();
+        this.setCreateTime(d);
+        this.setUpdateTime(d);
     }
 
     @PreUpdate
