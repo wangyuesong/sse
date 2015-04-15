@@ -15,7 +15,10 @@
 		data-options="region:'north',href:'${pageContext.request.contextPath}/dispatch/student/layout_north'"
 		style="height: 60px; overflow: hidden;"></div>
 	<div
-		data-options="region:'west',title:'功能导航',href:'${pageContext.request.contextPath}/dispatch/student/layout_west'"
+		data-options="region:'west',title:'功能导航',href:'${pageContext.request.contextPath}/dispatch/student/layout_west_menu'"
+		style="width: 200px; overflow: hidden;"></div>
+	<div
+		data-options="region:'east',title:'日程事件',href:'${pageContext.request.contextPath}/dispatch/student/layout_east'"
 		style="width: 200px; overflow: hidden;"></div>
 	<div
 		data-options="region:'center',title:'欢迎使用本系统',href:'${pageContext.request.contextPath}/dispatch/student/layout_center'"
@@ -23,6 +26,5 @@
 	<div
 		data-options="region:'south',href:'${pageContext.request.contextPath}/dispatch/student/layout_south'"
 		style="height: 25px; overflow: hidden;"></div>
-
 </body>
 </html>

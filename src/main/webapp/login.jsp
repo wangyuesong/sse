@@ -12,7 +12,7 @@
 
   $(function() {
     loginForm = $('#loginForm').form({
-      url : 'login',
+      url : '${pageContext.request.contextPath}/user/login',
       success : function(result) {
         var r = $.parseJSON(result);
         if (r.success) {
@@ -22,10 +22,7 @@
           else if (r.obj.role == 'Teacher')
             window.location.href = "dispatch/tea_index";
         } else if (!r.success) {
-          $.messager.show({
-            title : '提示',
-            msg : r.msg
-          })
+         uo
         }
 
       }
@@ -71,12 +68,5 @@
 			</div>
 		</div>
 	</div>
-	<script>
-    $(document).ready(function() {
-      function login() {
-
-      }
-    });
-  </script>
 </body>
 </html>
