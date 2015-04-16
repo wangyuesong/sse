@@ -1,10 +1,18 @@
 package sse.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.*;
-
-import java.sql.Timestamp;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the document database table.
@@ -13,7 +21,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "DOCUMENT")
 @NamedQuery(name = "Document.findAll", query = "SELECT d FROM Document d")
-public class Document  implements Serializable{
+public class Document extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -24,26 +32,31 @@ public class Document  implements Serializable{
     @Column(nullable = false, length = 45)
     private String name;
 
-    @Column(nullable = false, length = 45)
-    private String status;
-
-    @Column(nullable = false, length = 2000)
-    private String url;
-
     // bi-directional many-to-one association to Documenttype
     @ManyToOne
     @JoinColumn(name = "DOCUMENTTYPE_ID", nullable = false)
     private Documenttype documenttype;
 
-    // bi-directional many-to-one association to User
-    @ManyToOne
-    @JoinColumn(name = "USER_ID", nullable = false)
-    private User user;
-
     @Column(name = "LAST_MODIFIED_BY")
     private int lastModifiedBy;
 
-    public Document() {
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "CREATOR")
+    private Student creator;
+
+    @OneToMany(mappedBy = "document")
+    private List<DocumentComment> documentComments;
+
+    public List<DocumentComment> getDocumentComments() {
+        return documentComments;
+    }
+
+    public void setDocumentComments(List<DocumentComment> documentComments) {
+        this.documentComments = documentComments;
+    }
+
+    public void setCreator(Student creator) {
+        this.creator = creator;
     }
 
     public int getId() {
@@ -62,22 +75,6 @@ public class Document  implements Serializable{
         this.name = name;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public Documenttype getDocumenttype() {
         return documenttype;
     }
@@ -86,20 +83,20 @@ public class Document  implements Serializable{
         this.documenttype = documenttype;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public int getLastModifiedBy() {
         return lastModifiedBy;
     }
 
     public void setLastModifiedBy(int lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public int getCreator() {
+        return creator;
+    }
+
+    public void setCreator(int creator) {
+        this.creator = creator;
     }
 
 }

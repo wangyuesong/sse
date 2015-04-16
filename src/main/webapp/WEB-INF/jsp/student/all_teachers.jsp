@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -17,7 +16,6 @@
     return "<a href='javascript:void(0);' class='oneTeacherDetail' id='" + rowData['id'] + "'>" + value + "</a>";
   }
   $(function() {
-
     all_teachers_datagrid = $('#all_teachers_datagrid').datagrid({
       url : '${pageContext.request.contextPath}/student/getAllTeachers',
       fitColumns : true,
@@ -65,7 +63,7 @@
       }, '-' ]
     });
 
-    alert( $("#2"));
+    alert($("#2"));
     $(".oneTeacherDetail").each(function() {
       alert($(this).attr('id'));
     })
@@ -81,4 +79,3 @@
 		<div></div>
 	</div>
 </body>
-</html>

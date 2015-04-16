@@ -5,9 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:include page="/inc.jsp"></jsp:include>
 <script>
-  function update_my_will() {
-    $('#willForm').submit();
-  }
   $(function() {
     var firstWill;
     var secondWill;
@@ -30,11 +27,26 @@
       }
     });
 
-    $("#updateWillButton").onclick = update_my_will();
-    
+    $("#updateWillButton").click(function() {
+      $('#willForm').submit();
+    });
+
     $("#willForm").form({
       url : '${pageContext.request.contextPath}/student/saveSelection',
       type : "post",
+      onSubmit : function() {
+        var first = $('#firstWill').combogrid('getValue');
+        var second = $('#secondWill').combogrid('getValue');
+        var third = $('#thirdWill').combogrid('getValue');
+        if (first == second || second == third || first == third) {
+          $.messager.show({
+            title : '提示',
+            msg : "不能填报相同的教师"
+          })
+          return false;
+        }
+        return true;
+      },
       success : function(result) {
         var r = $.parseJSON(result);
         if (r.success) {
@@ -53,7 +65,6 @@
 
     $('#firstWill').combogrid({
       panelWidth : 450,
-      value : '006',
       idField : 'account',
       textField : 'name',
       url : '${pageContext.request.contextPath}/student/getAllTeachers',
@@ -69,7 +80,6 @@
     });
     $('#secondWill').combogrid({
       panelWidth : 450,
-      value : '006',
       idField : 'account',
       textField : 'name',
       url : '${pageContext.request.contextPath}/student/getAllTeachers',
@@ -85,7 +95,6 @@
     });
     $('#thirdWill').combogrid({
       panelWidth : 450,
-      value : '006',
       idField : 'account',
       textField : 'name',
       url : '${pageContext.request.contextPath}/student/getAllTeachers',
@@ -99,7 +108,6 @@
         width : 100
       }, ] ]
     });
-
     $('#firstWill').combogrid('setValue', firstWill);
     $('#secondWill').combogrid('setValue', secondWill);
     $('#thirdWill').combogrid('setValue', thirdWill);
@@ -134,7 +142,7 @@
 			<tr bgcolor="#FAFAF1">
 				<th>第一志愿</th>
 				<td><select id="firstWill" name="firstWill"
-					style="width: 250px; algin:"></select></td>
+					style="width: 250px;"></select></td>
 				<th>第二志愿</th>
 				<td><select id="secondWill" name="secondWill"
 					style="width: 250px;"></select></td>
@@ -147,17 +155,6 @@
 			</tr>
 		</p>
 	</form>
-
-</fieldset>
-<fieldset>
-	<legend align="left">最近登陆记录</legend>
-	<table id="lastloginip" width="98%" border="0" cellpadding="2"
-		border='1' class="tableForm" cellspacing="1" bgcolor="#D1DDAA"
-		align="center" style="margin-top: 8px">
-		<tr align="center" bgcolor="#FAFAF1">
-			<th>登陆时间</th>
-			<th>登陆IP</th>
-		</tr>
-	</table>
+70000+ 184200+ 29520
 </fieldset>
 </body>

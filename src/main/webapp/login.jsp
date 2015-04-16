@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="inc.jsp"></jsp:include>
+<jsp:include page="/inc.jsp"></jsp:include>
 <script>
   var loginForm;
   var loginDialog;
@@ -22,7 +22,7 @@
           else if (r.obj.role == 'Teacher')
             window.location.href = "dispatch/tea_index";
         } else if (!r.success) {
-         uo
+          uo
         }
 
       }

@@ -35,7 +35,7 @@ public abstract class User extends BaseModel implements Serializable {
 
     @Column(nullable = false, length = 45)
     private String account;
-    
+
     @Column(nullable = false, length = 45)
     private String name;
 
@@ -60,9 +60,9 @@ public abstract class User extends BaseModel implements Serializable {
     @Column(name = "SELF_DESCRIPTION", length = 1000)
     private String selfDescription;
 
-    // bi-directional many-to-one association to Document
-    @OneToMany(mappedBy = "user")
-    private List<Document> documents;
+//    // bi-directional many-to-one association to Document
+//    @OneToMany(mappedBy = "user")
+//    private List<Document> documents;
 
     public User() {
     }
@@ -147,26 +147,12 @@ public abstract class User extends BaseModel implements Serializable {
         this.selfDescription = selfDescription;
     }
 
-    public List<Document> getDocuments() {
-        return this.documents;
-    }
-
-    public void setDocuments(List<Document> documents) {
-        this.documents = documents;
-    }
-
-    public Document addDocument(Document document) {
-        getDocuments().add(document);
-        document.setUser(this);
-
-        return document;
-    }
-
-    public Document removeDocument(Document document) {
-        getDocuments().remove(document);
-        document.setUser(null);
-
-        return document;
-    }
+//    public List<Document> getDocuments() {
+//        return this.documents;
+//    }
+//
+//    public void setDocuments(List<Document> documents) {
+//        this.documents = documents;
+//    }
 
 }

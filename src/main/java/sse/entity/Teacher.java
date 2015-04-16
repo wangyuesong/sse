@@ -32,6 +32,9 @@ public class Teacher extends User {
     @Column(length = 45)
     private String degree;
 
+    @OneToMany(mappedBy = "teacher")
+    List<DocumentComment> documentComments;
+
     public List<Student> getStudents() {
         return students;
     }

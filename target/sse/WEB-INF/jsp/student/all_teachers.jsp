@@ -13,7 +13,11 @@
 </style>
 <script>
   var all_teachers_datagrid = null;
+  function row_data_format(value, rowData) {
+    return "<a href='javascript:void(0);' class='oneTeacherDetail' id='" + rowData['id'] + "'>" + value + "</a>";
+  }
   $(function() {
+    alert(new Date(2014, 7, 12, 17));
     all_teachers_datagrid = $('#all_teachers_datagrid').datagrid({
       url : '${pageContext.request.contextPath}/student/getAllTeachers',
       fitColumns : true,
@@ -31,10 +35,7 @@
         field : 'name',
         title : '姓名',
         width : 40,
-        formatter : function(value, rowData, rowIndex) {
-          return "<a href=''>" + value + "</a>";
-        }
-
+        formatter : row_data_format
       }, {
         field : 'capacity',
         title : '可接受学生数目',
@@ -64,8 +65,10 @@
       }, '-' ]
     });
 
-    var myHeight = $(document).height();
-    $("#shit").height(500);
+    alert($("#2"));
+    $(".oneTeacherDetail").each(function() {
+      alert($(this).attr('id'));
+    })
 
   });
 </script>
@@ -75,9 +78,7 @@
 	Dialog Content.</div> -->
 	<div id="tab" data-options="region:'center'" style="height: 100%">
 		<table id="all_teachers_datagrid"></table>
-		<div>
-		
-		</div>
+		<div></div>
 	</div>
 </body>
 </html>

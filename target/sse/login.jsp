@@ -22,10 +22,7 @@
           else if (r.obj.role == 'Teacher')
             window.location.href = "dispatch/tea_index";
         } else if (!r.success) {
-          $.messager.show({
-            title : '提示',
-            msg : r.msg
-          })
+         uo
         }
 
       }

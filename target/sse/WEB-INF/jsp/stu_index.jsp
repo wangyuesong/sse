@@ -18,6 +18,9 @@
 		data-options="region:'west',title:'功能导航',href:'${pageContext.request.contextPath}/dispatch/student/layout_west_menu'"
 		style="width: 200px; overflow: hidden;"></div>
 	<div
+		data-options="region:'east',title:'日程事件',href:'${pageContext.request.contextPath}/dispatch/student/layout_east'"
+		style="width: 300px;"></div>
+	<div
 		data-options="region:'center',title:'欢迎使用本系统',href:'${pageContext.request.contextPath}/dispatch/student/layout_center'"
 		style="overflow: hidden;"></div>
 	<div

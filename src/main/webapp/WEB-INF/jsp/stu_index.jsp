@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="inc.jsp"></jsp:include>
+<jsp:include page="/inc.jsp"></jsp:include>
 <script>
   
 </script>
@@ -19,7 +19,7 @@
 		style="width: 200px; overflow: hidden;"></div>
 	<div
 		data-options="region:'east',title:'日程事件',href:'${pageContext.request.contextPath}/dispatch/student/layout_east'"
-		style="width: 200px; overflow: hidden;"></div>
+		style="width: 300px;"></div>
 	<div
 		data-options="region:'center',title:'欢迎使用本系统',href:'${pageContext.request.contextPath}/dispatch/student/layout_center'"
 		style="overflow: hidden;"></div>
