@@ -16,6 +16,8 @@
     <class>sse.entity.Will</class>
     <class>sse.entity.WillPK</class>
     <class>sse.entity.TimeNode</class>
+    <class>sse.entity.Attachment</class>
+    <class>sse.entity.DocumentComment</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sse?characterEncoding=utf-8"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

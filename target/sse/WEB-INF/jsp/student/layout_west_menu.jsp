@@ -35,7 +35,7 @@
 					if (node) {
 						ctrlTreeMyTeacher.tree('expandAll', node.target);
 					} else {
-						ctrlTreeMyTeacher.tree('expandAll');
+						ctrlTreeMyTeacher.tree('expandAll');8
 					}
 				}
 			}, {

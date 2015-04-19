@@ -91,12 +91,8 @@ public class Document extends BaseModel implements Serializable {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public int getCreator() {
+    public Student getCreator() {
         return creator;
-    }
-
-    public void setCreator(int creator) {
-        this.creator = creator;
     }
 
 }

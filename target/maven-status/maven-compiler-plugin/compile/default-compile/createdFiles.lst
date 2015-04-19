@@ -7,6 +7,8 @@ sse/dao/impl/UserDaoImpl.class
 sse/service/impl/StudentServiceImpl.class
 sse/controller/AjaxRenderViewController.class
 sse/dao/impl/TeacherDaoImpl.class
+sse/entity/Attachment.class
+sse/entity/DocumentComment.class
 sse/entity/Teacher.class
 sse/dao/impl/WillDaoImpl.class
 sse/pageModel/TreeModel.class
@@ -30,6 +32,7 @@ sse/jsonmodel/BasicJson.class
 sse/entity/WillPK.class
 sse/pageModel/WillModel.class
 sse/dao/impl/MenuDaoImpl.class
+sse/enums/RatingEnum.class
 sse/entity/Document.class
 sse/enums/StatusEnum.class
 sse/pageModel/DataGrid.class

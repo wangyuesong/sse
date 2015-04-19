@@ -91,14 +91,6 @@ public class Attachment extends BaseModel implements Serializable {
         this.finalVersion = finalVersion;
     }
 
-    public Document getParentDocument() {
-        return parentDocument;
-    }
-
-    public void setParentDocument(Document parentDocument) {
-        this.parentDocument = parentDocument;
-    }
-
     public int getLastModifiedBy() {
         return lastModifiedBy;
     }
